@@ -1,0 +1,14 @@
+# Favicon
+favicon: /favicon.ico
+
+# SEO
+keywords: code, life, game, comic, book
+
+# Site title separator
+separator: '-'
+
+# Nav menu
+menu:
+  Home: /
+  Archives: /archives
+  About: /

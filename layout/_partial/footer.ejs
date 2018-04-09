@@ -1,0 +1,20 @@
+<footer class="footer">
+  <nav class="blog-nav">
+    <ul class="menu">
+      <% for (name in theme.menu) { %>
+        <li class="menu-item">
+          <a href="<%- url_for(theme.menu[name]) %>" class="menu-item-link"><%- __(name) %></a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>  
+  <div class="credit">
+      Powered by Hexo and Theme by Streak 
+  </div>
+  <div class="copright">
+    &copy; <%= date(new Date(), 'YYYY') %>
+    <span class="author">
+      <%= config.author || '' %>
+    </span>
+  </div>
+</footer>
