@@ -1,5 +1,5 @@
 
-@font-size : 12px;
+@font-size : 14px;
 @line-height : 1.6em;
 @color-border : #ddd;
 @color-background : #eee;
@@ -56,7 +56,8 @@
         border-width: 0 0 0 0px;
         overflow: auto;
         color: @highlight-foreground;
-        line-height: @font-size * @line-height; 
+        line-height: @font-size * @line-height;
+        font-size: @font-size; 
         pre{
             border: none;
             margin: 0;
@@ -94,30 +95,30 @@
         .line.marked{
             background: @highlight-selection;     
         }      
-        &:before{
-            content: "";
-            display: block;
-            position: absolute;
-            top:0px;
-            width: 10px;
-            height: 10px;
-            border:2px solid transparent;
-            left:0px;
-            border-left-color: @main-color;
-            border-top-color: @main-color;
-        }
-        &:after{
-            content: "";
-            display: block;
-            position: absolute;
-            bottom:0px;
-            width: 10px;
-            height: 10px;
-            border:2px solid transparent;
-            right:0px;
-            border-right-color: @main-color;
-            border-bottom-color: @main-color;
-        }                          
+        // &:before{
+        //     content: "";
+        //     display: block;
+        //     position: absolute;
+        //     top:0px;
+        //     width: 10px;
+        //     height: 10px;
+        //     border:2px solid transparent;
+        //     left:0px;
+        //     border-left-color: @main-color;
+        //     border-top-color: @main-color;
+        // }
+        // &:after{
+        //     content: "";
+        //     display: block;
+        //     position: absolute;
+        //     bottom:0px;
+        //     width: 10px;
+        //     height: 10px;
+        //     border:2px solid transparent;
+        //     right:0px;
+        //     border-right-color: @main-color;
+        //     border-bottom-color: @main-color;
+        // }                          
     }
     .gist{
         margin: 0 @article-padding * -1;
