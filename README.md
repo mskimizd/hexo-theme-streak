@@ -14,7 +14,7 @@ $ npm install --save hexo-renderer-less
 ### Download theme
 
 ```bash
-$ git clone -b master https://github.com/???.git themes/streak
+$ git clone -b master https://github.com/hexo-theme-streak.git themes/streak
 ```
 
 ### Configure
