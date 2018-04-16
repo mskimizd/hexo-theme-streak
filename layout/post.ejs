@@ -6,16 +6,18 @@
         <div class="post-content" >
           <%- page.content %>
         </div>
-        <% if (page.tags && page.tags.length){ %>
-          <ul class="post-tag-list">
-          <% page.tags.each(function (tag, i) { %>
-            <li class="post-tag">
-              <span class="number-sign">#</span>
-              <%= tag.name %>
-            </li>
-          <% }) %>
-          </ul>
-        <% } %>          
+        <div class="post-bottom">
+          <% if (page.tags && page.tags.length){ %>
+            <ul class="post-tag-list">
+            <% page.tags.each(function (tag, i) { %>
+              <li class="post-tag">
+                <span class="number-sign">#</span>
+                <%= tag.name %>
+              </li>
+            <% }) %>
+            </ul>
+          <% } %>
+        </div>          
     </div>
   </div>
 </section>

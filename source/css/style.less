@@ -132,11 +132,9 @@ ul{
     .post-title{
         display: block;
         font-size: 32px;
-        font-weight: bold;
     }
     .post-date{
         color: #888;
-        font-weight: lighter;
     }
     .post-content{
         padding:20px 0;
@@ -154,20 +152,33 @@ ul{
             border-bottom: 1px solid #333;
         }        
     }
-    .post-more-link{
-        // padding:30px 0;
-        font-style: italic;
-        font-weight: lighter;        
-    }
-    .post-tag-list{
-        display:flex;
-        .post-tag{
-            margin-right:10px;
-            color: #888;
-            font-weight: lighter;            
-            .number-sign{
-                color:@main-color;
-                font-weight: bold;
+    .post-bottom{
+        .post-more-link{  
+            float: right;
+            margin-right: 10px;
+            a{
+                border:0;
+                color: #666;
+                span{
+                    font-weight: bold;
+                    color:@main-color;
+                    padding:0 4px;
+                }               
+                &:hover{
+                    color: @main-color;
+                }
+            }   
+        }
+        .post-tag-list{
+            float: left;
+            display:flex;
+            .post-tag{
+                margin-right:10px;
+                color: #666;         
+                .number-sign{
+                    color:@main-color;
+                    font-weight: bold;
+                }
             }
         }
     }
@@ -189,7 +200,6 @@ ul{
             line-height: 1.8;            
             time{
                 color: #888;
-                font-weight: lighter;
                 margin-right: 24px;
                 width: 40px;
                 display: table;                            

@@ -11,24 +11,31 @@
               <time class="post-date"><%= date(post.date, "MMMM D") %></time>
               <div class="post-content" >
               <% if (post.excerpt && index){ %>
-                <%- post.excerpt %>
-                <p class="post-more-link">
-                    <a href="<%- url_for(post.path) %>#more">Read More</a>
-                </p>                
+                <%- post.excerpt %>               
               <% } else { %>
                 <%- post.content %>
               <% } %>
             </div>
-            <% if (post.tags && post.tags.length){ %>
-              <ul class="post-tag-list">
-              <% post.tags.each(function (tag, i) { %>
-                <li class="post-tag">
-                  <span class="number-sign">#</span>
-                  <%= tag.name %>
-                </li>
-              <% }) %>
-              </ul>
-            <% } %>            
+            <div class="post-bottom">
+              <% if (post.tags && post.tags.length){ %>
+                <ul class="post-tag-list">
+                <% post.tags.each(function (tag, i) { %>
+                  <li class="post-tag">
+                    <span class="number-sign">#</span>
+                    <%= tag.name %>
+                  </li>
+                <% }) %>
+                </ul>
+              <% } %> 
+              <p class="post-more-link">
+                <a href="<%- url_for(post.path) %>">
+                  <span>[</span>
+                  Read More
+                  <span>]</span>
+                </a>
+              </p>               
+            </div>
+            <div style="clear:both;"></div>           
           </div>
         </div>
     <% }) %>
