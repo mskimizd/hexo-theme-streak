@@ -155,7 +155,7 @@ ul{
     .post-bottom{
         .post-more-link{  
             float: right;
-            margin-right: 10px;
+            margin: 0;
             a{
                 border:0;
                 color: #666;
@@ -194,18 +194,20 @@ ul{
             font-size:32px;
         }
         .archive-post{
-            display:flex;
+            display:table;
             padding-left: 20px;
             margin-bottom: 5px;
             line-height: 1.8;            
             time{
                 color: #888;
-                margin-right: 24px;
-                width: 40px;
-                display: table;                            
+                width: 80px;
+                display: table-cell;                            
             }
-            .title{
-                color: #4c4c4c;
+            a{
+                display: table-cell;
+                .title{
+                    color: #4c4c4c;
+                }                 
             }
         }
     }    
@@ -243,6 +245,9 @@ ul{
             }
             .archive-post{
                 padding-left: 10px;
+                time{
+                    width:60px;
+                }
             }
         }
     }
@@ -257,8 +262,15 @@ ul{
             line-height: 1.6;
             font-size: 14px;            
         }
-        .post-more-link{
-            padding: 0px;
+        .post-bottom{
+            .post-tag-list{
+                margin-top: 20px;
+                float: initial;
+            }
+            .post-more-link{
+                float: initial;
+                margin-top: 20px;
+            }
         }
     }
     .pagination{
