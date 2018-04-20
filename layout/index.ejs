@@ -1,3 +1,32 @@
 <div class="post-list">
-    <%- partial('_partial/article', {index: true}) %>    
+    <% page.posts.each(function (post, i) { %>
+        <% if (i%2 == 0 ){ %>
+            <div class="post-bg-dark">
+        <% } else { %>
+            <div class="post-bg">
+        <% } %>    
+            <%- partial('_partial/article', {post: post, index: true}) %>  
+    <% }) %>    
+    
+    <% if (page.total > 1) { %>
+        <div class="pagination">
+          <% if (page.prev != 0) { %>
+          <a class="prev" rel="prev" href="<%= url_for(page.prev_link) %>">
+            <span class="text"> <span>&lt</span> PREV</span>
+          </a>
+          <% } %>
+      
+          <% if (page.next != 0 && page.prev != 0) { %>
+          <span class="cur-page-text"> <%= page.current %> </span>
+          <% } %>
+      
+          <% if (page.next != 0) { %>
+          <a class="next" rel="next" href="<%= url_for(page.next_link) %>">
+            <span class="text">NEXT <span>&gt</span> </span>
+          </a>
+          <% } %>
+        </div>
+        
+      <% } %>    
+
 </div>

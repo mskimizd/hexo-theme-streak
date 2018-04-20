@@ -1,25 +1,30 @@
 <section class="archive">
   <div class="archive-block">
-  <%
-    var year = -1, postid = -1;
-    page.posts.each(function(post) {
-      post.year = date(post.date, 'YYYY');
-      if (post.year && post.year !== year) {
-        year = post.year;
-  %>
-        <h3 class="archive-item archive-year">
-          <a id="archive-year-<%= year %>" href="/archives/<%= year %>/">
-            <%= year %>
+    <% if ( page.tag  ){ %>
+      <div class="archive-title">
+          <%= page.tag %>
+        </div>              
+    <% } %>        
+    <%
+      var year = -1, postid = -1;
+      page.posts.each(function(post) {
+        post.year = date(post.date, 'YYYY');
+        if (post.year && post.year !== year) {
+          year = post.year;
+    %>
+          <h3 class="archive-item archive-year">
+            <a id="archive-year-<%= year %>" href="/archives/<%= year %>/">
+              <%= year %>
+            </a>
+          </h3>
+    <%  } %>
+        <div class="archive-item archive-post">
+          <time><%= date(post.date, 'MM-DD') %></time>
+          <a href="<%= url_for(post.path) %>">
+            <span class="title"><%= post.title %></span>
           </a>
-        </h3>
-  <%  } %>
-      <div class="archive-item archive-post">
-        <time><%= date(post.date, 'MM-DD') %></time>
-        <a href="<%= url_for(post.path) %>">
-          <span class="title"><%= post.title %></span>
-        </a>
-      </div>
-  <% }); %>
+        </div>
+    <% }); %>
   </div>
 </section>
 

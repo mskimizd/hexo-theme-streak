@@ -1,64 +1,30 @@
-<section class="articles animated fadeInDown">
-  <div class="post-archive">
-    <% page.posts.each(function (post, i) { %>
-      <% if (i%2 == 0 ){ %>
-        <div class="post-bg-dark">
-      <% } else { %>
-        <div class="post-bg">
-      <% } %>
-            <div class="post-item">
-              <a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
-              <time class="post-date"><%= date(post.date, "MMMM D") %></time>
-              <div class="post-content" >
-              <% if (post.excerpt && index){ %>
-                <%- post.excerpt %>               
-              <% } else { %>
-                <%- post.content %>
-              <% } %>
-            </div>
-            <div class="post-bottom">
-              <% if (post.tags && post.tags.length){ %>
-                <ul class="post-tag-list">
-                <% post.tags.each(function (tag, i) { %>
-                  <li class="post-tag">
-                    <span class="number-sign">#</span>
-                    <%= tag.name %>
-                  </li>
-                <% }) %>
-                </ul>
-              <% } %> 
-              <p class="post-more-link">
-                <a href="<%- url_for(post.path) %>">
-                  <span>[</span>
-                  Read More
-                  <span>]</span>
-                </a>
-              </p>
-              <div style="clear:both;"></div>                 
-            </div>         
-          </div>
-        </div>
-    <% }) %>
-  </div>
-</section>
-
-<% if (page.total > 1) { %>
-  <div class="pagination">
-    <% if (page.prev != 0) { %>
-    <a class="prev" rel="prev" href="<%= url_for(page.prev_link) %>">
-      <span class="text"> <span>&lt</span> PREV</span>
-    </a>
-    <% } %>
-
-    <% if (page.next != 0 && page.prev != 0) { %>
-    <span class="cur-page-text"> <%= page.current %> </span>
-    <% } %>
-
-    <% if (page.next != 0) { %>
-    <a class="next" rel="next" href="<%= url_for(page.next_link) %>">
-      <span class="text">NEXT <span>&gt</span> </span>
-    </a>
+<div class="post-item">
+  <a class="post-title" href="<%- url_for(post.path) %>"><%= post.title %></a>
+  <time class="post-date"><%= date(post.date, "MMMM D") %></time>
+  <div class="post-content" >
+    <% if (post.excerpt && index){ %>
+      <%- post.excerpt %>               
+    <% } else { %>
+      <%- post.content %>
     <% } %>
   </div>
-  
-<% } %>
+  <div class="post-bottom">
+    <% if (post.tags && post.tags.length){ %>
+      <%- list_tags(post.tags, {
+        show_count: false,
+        class: 'post-tag'
+      }) %>
+    <% } %>
+    
+    <% if (index){ %>
+      <p class="post-more-link">
+        <a href="<%- url_for(post.path) %>">
+          <span>[</span>
+          Read More
+          <span>]</span>
+        </a>
+      </p>
+    <% } %>
+    <div style="clear:both;"></div>                 
+  </div>         
+</div>

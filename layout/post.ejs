@@ -1,26 +1,4 @@
-<section class="post animated fadeInDown">
-  <div class="post-bg-dark">
-    <div class="post-item">
-        <a class="post-title" href="<%- url_for(page.path) %>"><%= page.title %></a>
-        <time class="post-date"><%= date(page.date, "MMMM D YYYY") %></time>
-        <div class="post-content" >
-          <%- page.content %>
-        </div>
-        <div class="post-bottom">
-          <% if (page.tags && page.tags.length){ %>
-            <ul class="post-tag-list">
-            <% page.tags.each(function (tag, i) { %>
-              <li class="post-tag">
-                <span class="number-sign">#</span>
-                <%= tag.name %>
-              </li>
-            <% }) %>
-            </ul>
-          <% } %>
-        </div>          
-    </div>
-  </div>
-</section>
+<%- partial('_partial/article', {post: page, index: false}) %>
 
 
 
